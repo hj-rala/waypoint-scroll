@@ -1,0 +1,7 @@
+var wayPointS = function(){
+		$('.makeSection').each(function(){
+			$(this).waypoint(function() {
+				$(this).animate({'opacity':'1'},300,'easeOutSine');
+			}, { offset: '70%' });
+		});
+	}; wayPointS();
