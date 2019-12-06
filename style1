@@ -1,0 +1,48 @@
+var m1 = function(a){
+		var target = a;
+		$('.txtSection').eq(target).animate({'opacity':'1'},600);
+	};
+	var m2 = function(b){
+		var targetb = b;
+		var stList = $('.txtSection').eq(targetb).find('.circleCon').children('dl');
+		$('.txtSection').eq(targetb).animate({'opacity':'1'},600,function(){
+			for (i=0; i<stList.size(); i++ ){ 
+				stList.eq(i).delay(i*240).animate({'opacity':'1'},1200);
+			}
+		});
+	};
+	var m3 = function(c){
+		var targetc = c;
+		var stList = $('.txtSection').eq(targetc).find('.stList').children('li');
+		$('.txtSection').eq(targetc).animate({'opacity':'1'},600,function(){
+			for (i=0; i<stList.size(); i++ ){ 
+				stList.eq(i).delay(i*240).animate({'opacity':'1'},1200);
+			}
+		});
+	};
+
+
+	var wayPointS = function(){
+		$('.txtSection').each(function(){
+			$(this).waypoint(function() {
+				var depNum = $(this).index();
+				var depNum1 = $(this).index()-1;
+				switch (depNum) {
+					case 1 :
+						m1(depNum1);
+					break;
+					case 2 :
+						m1(depNum1);
+					break;
+					case 3 :
+						m2(depNum1);
+					break;
+					case 4 :
+						m3(depNum1);
+					break;
+					default :				
+					break;
+				}
+			}, { offset: '70%' });
+		});
+	}; wayPointS();
